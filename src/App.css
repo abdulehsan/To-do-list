@@ -17,6 +17,7 @@
   max-width: 400px;
   width: 100%;
   text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .modal-success .modal-content {
@@ -63,9 +64,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   height: 100vh;
-  padding-top: 20px;
 }
 
 .App {
@@ -84,10 +84,10 @@ body {
 
 .title-icon {
   margin-left: 10px;
+  animation: bounceIn 1s ease-in-out;
 }
 
-.task-button,
-.cancel-button {
+.task-button {
   background-color: #000b29;
   font-family: "Oxygen", sans-serif;
   font-weight: 700;
@@ -101,10 +101,14 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  transition: transform 0.5s ease;
 }
 
-.task-button-icon,
-.cancel-button-icon {
+.task-button:hover {
+  transform: scale(1.2);
+}
+
+.task-button-icon {
   margin: 5px;
 }
 
@@ -114,6 +118,7 @@ body {
   gap: 10px;
   margin-bottom: 20px;
   width: 320px;
+  animation: slideIn 0.5s ease-in-out;
 }
 
 .task-input {
@@ -123,10 +128,11 @@ body {
   background-color: #222831;
   color: white;
   width: 100%;
+  transition: background-color 0.5s ease;
 }
 
-.task-input-desc {
-  height: 100px;
+.task-input:focus {
+  background-color: #333;
 }
 
 .tasks-container {
@@ -137,6 +143,7 @@ body {
   width: 320px;
   padding: 10px;
   border-radius: 10px;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .task {
@@ -147,6 +154,11 @@ body {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.task:hover {
+  background-color: rgba(0, 8, 20, 0.5);
 }
 
 .task-checkbox {
@@ -156,6 +168,11 @@ body {
 .task-content {
   flex-grow: 1;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.task-content:hover {
+  transform: scale(1.05);
 }
 
 .task-text {
@@ -181,6 +198,7 @@ body {
   cursor: pointer;
   color: #58a6ff;
   margin-left: 10px;
+  transition: color 0.3s ease;
 }
 
 .edit-task-button:disabled,
@@ -191,4 +209,38 @@ body {
 .edit-task-button:hover:enabled,
 .delete-task-button:hover:enabled {
   color: #1f6feb;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

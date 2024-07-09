@@ -160,11 +160,8 @@ function App() {
               <FaPlus className="task-button-icon" />
               {editingTask !== null ? "Save Task" : "Add Task"}
             </button>
-            <button
-              className="cancel-button"
-              onClick={() => setShowForm(false)}
-            >
-              <ImCancelCircle className="cancel-button-icon" />
+            <button className="task-button" onClick={() => setShowForm(false)}>
+              <ImCancelCircle className="task-button-icon" />
               Cancel
             </button>
           </div>
